@@ -1,0 +1,16 @@
+@isTest
+public class MailgunCalloutMockImpl implements HttpCalloutMock {
+    String status;
+    Integer statusCode;
+    public MailgunCalloutMockImpl(String status, Integer statusCode) {
+        this.status = status;
+        this.statusCode = statusCode;
+    }
+    
+    public HTTPResponse respond(HTTPRequest req) {
+        HttpResponse res = new HttpResponse();
+        res.setStatus(this.status);
+        res.setStatusCode(this.statusCode);
+        return res;
+    }
+}
