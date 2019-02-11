@@ -1,0 +1,8 @@
+trigger AccountsSendMailTrigger on Account (after insert, after update) {
+    if(Trigger.isInsert) {
+		AccountsDomain.OnAfterInsert(Trigger.new);
+    }
+    else if(Trigger.isUpdate) {
+        AccountsDomain.OnAfterUpdate(Trigger.new, Trigger.oldMap);
+    }
+}
